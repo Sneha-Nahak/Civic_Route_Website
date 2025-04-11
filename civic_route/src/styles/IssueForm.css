@@ -1,0 +1,86 @@
+.issue-form {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 4rem auto;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .section-title {
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1a202c;
+    text-align: center;
+  }
+  
+  .issue-form input,
+  .issue-form textarea,
+  .issue-form select {
+    font-size: 1rem;
+    padding: 12px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background-color: #f9fafb;
+    font-family: inherit;
+  }
+  
+  .issue-form input:focus,
+  .issue-form textarea:focus,
+  .issue-form select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+    background-color: #ffffff;
+  }
+  
+  .issue-form textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .issue-form button {
+    padding: 14px;
+    background: linear-gradient(to right, #3b82f6, #2563eb);
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    font-family: inherit;
+  }
+  
+  .issue-form button:hover {
+    background: linear-gradient(to right, #2563eb, #1d4ed8);
+    transform: translateY(-2px);
+  }
+  
+  .error-text {
+    color: #e63946;
+    font-size: 0.85rem;
+    margin-top: -10px;
+    margin-bottom: 5px;
+  }
+  
+
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
