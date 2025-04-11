@@ -14,7 +14,10 @@ export const UserProvider = ({ children }) => {
     try {
       const { data } = await axios.get(`${baseURL}/localIssues.json`);
       if (data) {
-        const issuesArray = Object.entries(data).map(([id, issue]) => ({ id, ...issue }));
+        const issuesArray = Object.entries(data).map(([id, issue]) => ({
+          id,
+          ...issue,
+        }));
         setIssues(issuesArray);
       } else {
         setIssues([]);
@@ -24,10 +27,15 @@ export const UserProvider = ({ children }) => {
     }
   };
 
-  // POST: Add new issue
+  // POST: Add new issue with current date
   const addIssue = async (newIssue) => {
     try {
-      const res = await axios.post(`${baseURL}/localIssues.json`, newIssue);
+      const issueWithDate = {
+        ...newIssue,
+        createdAt: new Date().toISOString(), // Add current date
+      };
+
+      const res = await axios.post(`${baseURL}/localIssues.json`, issueWithDate);
       if (res.status === 200) {
         fetchIssues(); // Refresh list after adding
       }

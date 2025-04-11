@@ -12,20 +12,20 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <NavLink to="/" className="brand-title">CivicRoutes</NavLink>
+        <NavLink to="/citizen" className="brand-title">CivicRoutes</NavLink>
         <button className="menu-toggle" onClick={toggleMenu}>
           ☰
         </button>
       </div>
       <ul className={`nav-links ${isOpen ? "open" : ""}`}>
         <li>
-          <NavLink to="/" onClick={() => setIsOpen(false)} className="nav-item">Dashboard</NavLink>
+          <NavLink to="/citizen" onClick={() => setIsOpen(false)} className="nav-item">Dashboard</NavLink>
         </li>
         <li>
-          <NavLink to="/issue-form" onClick={() => setIsOpen(false)} className="nav-item">Report Issue</NavLink>
+          <NavLink to="/citizen/issue-form" onClick={() => setIsOpen(false)} className="nav-item">Report Issue</NavLink>
         </li>
         <li>
-          <NavLink to="/authority-updates" onClick={() => setIsOpen(false)} className="nav-item">Authority Updates</NavLink>
+          <NavLink to="/citizen/authority-updates" onClick={() => setIsOpen(false)} className="nav-item">Authority Updates</NavLink>
         </li>
       </ul>
     </nav>

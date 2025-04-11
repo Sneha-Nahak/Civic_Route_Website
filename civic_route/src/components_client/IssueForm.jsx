@@ -47,7 +47,9 @@ const IssueForm = ({ onIssueAdded }) => {
     try {
       const payload = {
         ...formData,
-        image: formData.image.trim() || "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
+        image:
+          formData.image.trim() ||
+          "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
       };
 
       await axios.post(
@@ -64,11 +66,11 @@ const IssueForm = ({ onIssueAdded }) => {
       });
 
       setErrors({});
-      alert("Issue submitted successfully!");
+      alert("Issue submitted successfully!"); // Success alert
       onIssueAdded?.();
     } catch (error) {
       console.error("Error submitting issue:", error);
-      alert("Something went wrong while submitting the issue.");
+      alert("Something went wrong while submitting the issue."); // Error alert
     }
   };
 
@@ -118,7 +120,9 @@ const IssueForm = ({ onIssueAdded }) => {
         <option value="fixed">Fixed</option>
       </select>
 
-      <button type="submit" disabled={!isFormValid}>Submit</button>
+      <button type="submit" disabled={!isFormValid}>
+        Submit
+      </button>
     </form>
   );
 };

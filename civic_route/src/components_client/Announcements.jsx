@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "../styles/AuthorityUpdates.css";
+import "../styles/Announcements.css";
 
-const AuthorityUpdates = () => {
+const Announcements = () => {
   const [authorityUpdates, setAuthorityUpdates] = useState([]);
 
   const fetchUpdates = async () => {
@@ -44,4 +44,4 @@ const AuthorityUpdates = () => {
   );
 };
 
-export default AuthorityUpdates;
+export default Announcements;
