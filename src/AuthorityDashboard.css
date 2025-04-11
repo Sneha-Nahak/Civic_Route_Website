@@ -10,9 +10,10 @@ body {
 }
 
 .dashboard-container {
-  max-width: 1200px;
-  margin: auto;
   padding: 1rem;
+  margin: auto;
+  width: 100%;
+  max-width: 1200px;
 }
 
 /* =====================
@@ -20,32 +21,34 @@ body {
 ===================== */
 .header {
   background-color: #ffffff;
-  padding: 1.5rem 2rem;
+  padding: 1rem;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
 }
 
 .title {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
 .nav {
   display: flex;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .nav-btn {
   background-color: #1e88e5;
   color: white;
   border: none;
-  padding: 0.6rem 1.2rem;
+  padding: 0.6rem 1rem;
   border-radius: 8px;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   cursor: pointer;
   text-decoration: none;
   transition: background-color 0.3s ease;
@@ -59,7 +62,7 @@ body {
    Section Titles
 ===================== */
 .section-title {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 600;
   margin-bottom: 1rem;
   text-align: center;
@@ -82,10 +85,9 @@ body {
 }
 
 .card-content {
-  padding: 1.5rem;
+  padding: 1.2rem;
 }
 
-/* Priority borders for announcements */
 .card-red   { border-left: 5px solid #e53935; }
 .card-orange{ border-left: 5px solid #fb8c00; }
 .card-yellow{ border-left: 5px solid #fdd835; }
@@ -109,7 +111,8 @@ body {
 /* =====================
    Inputs & Textarea
 ===================== */
-.input {
+.input,
+.textarea {
   width: 100%;
   padding: 0.8rem;
   margin-bottom: 1rem;
@@ -153,7 +156,8 @@ body {
 
 .button-group {
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.8rem;
   margin-top: 1rem;
 }
 
@@ -173,11 +177,11 @@ body {
 /* =====================
    Issues Page
 ===================== */
-/* Tabs */
 .issue-tabs {
   display: flex;
-  justify-content: center;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
   margin-bottom: 2rem;
 }
 
@@ -201,10 +205,9 @@ body {
   color: white;
 }
 
-/* Issue Cards */
 .issue-image {
   width: 100%;
-  max-height: 300px;
+  max-height: 250px;
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 1rem;
@@ -227,7 +230,7 @@ body {
   background-color: white;
   padding: 2rem;
   border-radius: 12px;
-  max-width: 400px;
+  max-width: 90%;
   width: 90%;
   box-shadow: 0 5px 25px rgba(0,0,0,0.2);
   text-align: center;
@@ -239,7 +242,51 @@ body {
 .footer {
   text-align: center;
   padding: 1.5rem 0;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #777;
   margin-top: 2rem;
 }
+
+/* =====================
+   Responsive Styles (Tablet & Desktop)
+===================== */
+@media (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .button-group {
+    flex-direction: row;
+  }
+
+  .issue-tabs {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  
+  .card-content {
+    padding: 1rem;
+    gap: 1rem; /* Adds consistent space between each element */
+  }
+  
+  .card-content .input,
+  .card-content .textarea,
+  .card-content select {
+    width: 100%;
+    
+    box-sizing: border-box;
+    margin: .5rem; /* Remove any inherited margins */
+  }
+  
