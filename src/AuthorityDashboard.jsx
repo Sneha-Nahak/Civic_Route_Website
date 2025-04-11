@@ -6,7 +6,7 @@ import IssuesPage from './pages/IssuesPage';
 import AuthorityPage from './pages/AuthorityPage';
 import './AuthorityDashboard.css'
 
-const App = () => {
+const AuthorityDashboard= () => {
   return (
     <Router>
       <div className="dashboard-container">
@@ -21,4 +21,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default AuthorityDashboard;
