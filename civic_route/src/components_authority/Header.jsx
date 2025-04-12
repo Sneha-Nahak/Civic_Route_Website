@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../components_client/logo.png'; // Adjust path if needed
-import './Header.css';
+import './header.css';
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
