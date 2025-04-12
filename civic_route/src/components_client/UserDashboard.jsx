@@ -11,11 +11,24 @@ const UserDashboard = () => {
         "https://civicroutes-default-rtdb.firebaseio.com/localIssues.json"
       );
       const data = res.data;
+
       if (data) {
         const issuesArray = Object.entries(data).map(([id, issue]) => ({
           id,
           ...issue,
         }));
+
+        // Sort by date (newest first), fallback for missing dates
+        issuesArray.sort((a, b) => {
+          const dateA = a.date
+            ? new Date(a.date.year, a.date.month - 1, a.date.day)
+            : new Date(0); // fallback to epoch if date is missing
+          const dateB = b.date
+            ? new Date(b.date.year, b.date.month - 1, b.date.day)
+            : new Date(0);
+          return dateB - dateA;
+        });
+
         setIssues(issuesArray);
       } else {
         setIssues([]);

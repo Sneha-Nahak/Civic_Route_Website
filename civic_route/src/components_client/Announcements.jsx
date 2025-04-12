@@ -5,6 +5,12 @@ import "../styles/Announcements.css";
 const Announcements = () => {
   const [authorityUpdates, setAuthorityUpdates] = useState([]);
 
+  const labelPriority = {
+    red: 3,
+    orange: 2,
+    yellow: 1
+  };
+
   const fetchUpdates = async () => {
     try {
       const res = await axios.get(
@@ -12,7 +18,16 @@ const Announcements = () => {
       );
       const data = res.data;
       if (data) {
-        const updatesArray = Object.values(data);
+        const updatesArray = Object.values(data)
+          .map(update => ({
+            ...update,
+            dateObj: new Date(update.date.year, update.date.month - 1, update.date.day)
+          }))
+          .sort((a, b) => {
+            if (b.dateObj - a.dateObj !== 0) return b.dateObj - a.dateObj;
+            return (labelPriority[b.label] || 0) - (labelPriority[a.label] || 0);
+          });
+
         setAuthorityUpdates(updatesArray);
       }
     } catch (error) {
@@ -25,22 +40,20 @@ const Announcements = () => {
   }, []);
 
   return (
-    <div className="authority-container">
-      <h1 className="authority-title">Authority Updates</h1>
-      {authorityUpdates.length === 0 ? (
-        <p className="empty-msg">Loading updates...</p>
-      ) : (
-        <div className="authority-grid">
-          {authorityUpdates.map((update, idx) => (
-            <div className="authority-card" key={idx}>
-              <p className="area"><strong>Area:</strong> {update.area}</p>
-              <p><strong>Details:</strong> {update.details}</p>
-              <p><strong>Announced By:</strong> {update.announcedBy}</p>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+    <div className="authority-grid">
+    {authorityUpdates.map((update, idx) => (
+      <div className="authority-card" key={idx}>
+        <p className="area"><strong>Area:</strong> {update.area}</p>
+        <p><strong>Details:</strong> {update.details}</p>
+        <p><strong>Announced By:</strong> {update.announcedBy}</p>
+        <p><strong>Announcement Date:</strong> {update.dateObj.toDateString()}</p>
+        <span className={`announcement-label label-${update.label}`}>
+          {update.label?.toUpperCase()}
+        </span>
+      </div>
+    ))}
+  </div>
+  
   );
 };
 

@@ -114,12 +114,6 @@ const IssueForm = ({ onIssueAdded }) => {
         onChange={handleChange}
       />
 
-      <select name="status" value={formData.status} onChange={handleChange}>
-        <option value="open">Open</option>
-        <option value="inprogress">In Progress</option>
-        <option value="fixed">Fixed</option>
-      </select>
-
       <button type="submit" disabled={!isFormValid}>
         Submit
       </button>
