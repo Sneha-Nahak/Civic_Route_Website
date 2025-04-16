@@ -6,7 +6,7 @@
 ## 🌐 Live Demo
 
 Hosted on [Netlify](https://civicroute.netlify.app/)  
-> Replace the above URL with your actual Netlify link.
+
 
 ---
 
